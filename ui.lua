@@ -61,5 +61,32 @@ return {
     { kind = "section", title = "关于" },
     { kind = "about" },
 
-  }
+  },
+
+  -- ==========================================================================
+  -- 导航与页面顺序（脚本驱动壳层）
+  -- nav.tabs：底部主胶囊 tab；order：页面左右顺序（含设置设置钮入口）
+  -- ==========================================================================
+  nav = {
+    tabs = {
+      { key = "home",    icon = "home",    title = "主页" },
+      { key = "modify",  icon = "build",   title = "修改" },
+      { key = "history", icon = "history", title = "记录" },
+    },
+    order = { "home", "modify", "history", "settings" },
+  },
+
+  -- ==========================================================================
+  -- 每屏结构（脚本驱动屏幕宿主）
+  -- items 里可用：screenHeader / section / card / slot / spacer。
+  -- slot 嵌入原生重交互组件（登录门禁、修改编辑面、历史列表、设置）。
+  -- 修改这里的结构 / 顺序 / 标题即可云更新整套界面外壳。
+  -- ==========================================================================
+  screens = {
+    home     = { items = { { kind = "slot", slot = "home" } } },
+    modify   = { items = { { kind = "slot", slot = "modify" } } },
+    history  = { items = { { kind = "slot", slot = "history" } } },
+    settings = { items = { { kind = "slot", slot = "settings" } } },
+  },
+
 }

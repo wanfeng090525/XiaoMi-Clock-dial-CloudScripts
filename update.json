@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "version": "1.1",
-  "message": "云脚本 v1.1：新增 ui.lua（设置页界面树脚本驱动）",
+  "version": "1.2",
+  "message": "云脚本 v1.2：ui.lua 增加 nav（导航壳）与 screens（全屏结构宿主）",
   "files": {
     "rules.lua": "c47a53f2ab30a0baa664eb494a61e0e147cdd611eb40df023cb40a24748c2acb",
     "models.lua": "108afe3fd178accf6b772d1f550930b47536a758f347b425f4bca8d57a6e7f89",
     "strings.lua": "29c6d51542a499f7de00b79e8dab5792066eb26856a5b947b34dac9e98a1f9d3",
-    "ui.lua": "6b7a2cebd233396ede457e518ccbaa8ec31bd2029ee197abd3514a17794db001"
+    "ui.lua": "859d8e555891b6b9f710d84598972e3821bb494361ffe2d327fbf67d902ebba8"
   }
 }
