@@ -127,20 +127,45 @@ return {
       history  = { items = { { kind = "slot", slot = "history" } } },
       settings = { items = { { kind = "slot", slot = "settings" } } },
 
-      -- 纯脚本构造页面：不依赖任何原生 slot
+      -- 纯脚本构造页面：不依赖任何原生 slot，云端增删 / 改参即整体改 UI 与功能
       apps = { items = {
         { kind = "screenHeader", title = "App 中心", subtitle = "CLOUD DRIVEN" },
+
+        -- 一条横幅公告（云端可写任意文案）
+        { kind = "banner", text = "☁ 界面与功能完全由云端脚本驱动，推送云端即热更", color = "E9EBF4" },
+
+        { kind = "badge", text = "云脚本 v2.0", color = "6EE7B7", size = 11 },
+
         { kind = "quickGrid" },
         { kind = "section", title = "功能专区" },
         { kind = "card", items = {
-            { kind = "button", text = "一键导入表盘", action = "import" },
+            { kind = "row",    icon = "download", title = "一键导入表盘", subtitle = "按权限自动分路", action = "import" },
             { kind = "button", text = "检查 App 更新", action = "checkUpdate" },
+            { kind = "divider" },
             { kind = "button", text = "同步云脚本",   action = "checkScripts" },
             { kind = "button", text = "Shizuku 授权", action = "permission" },
             { kind = "button", text = "浏览仓库",     action = "openGithub" },
             { kind = "button", text = "提取日志 Key", action = "extract" },
         } },
-        { kind = "textRow", text = "☁ 界面与功能完全由云端脚本驱动，推送云端即热更", color = "8A93A8", align = "center", size = 12 },
+
+        -- 通用控件库示范：控制面板（开关 / 拉条 / 跳转行 / 文本 / 分隔线）
+        { kind = "section", title = "体验控制台" },
+        { kind = "card", items = {
+            { kind = "text", text = "以下控件由云端脚本拼装，云端随时增删/改参。", color = "B8BFD6", size = 12 },
+            { kind = "switch", title = "点击音效", key = "script_sound", subtitle = "话筒开关", default = "1" },
+            { kind = "switch", title = "震动反馈", key = "script_vibrate", subtitle = "不同控件不同震动节奏", default = "1" },
+            { kind = "divider" },
+            { kind = "slider", title = "显示密度", key = "script_density", min = 20, max = 100, step = 5, default = 60, unit = "%" },
+        } },
+
+        { kind = "section", title = "快速链接" },
+        { kind = "card", items = {
+            { kind = "row", icon = "home",    title = "前往主页",   action = "goHome" },
+            { kind = "row", icon = "build",   title = "前往修改",   action = "goModify" },
+            { kind = "row", icon = "settings",title = "打开设置",   action = "goSettings" },
+        } },
+
+        { kind = "textRow", text = "界面、控件、功能均由云端 main.lua 驱动", color = "8A93A8", align = "center", size = 12 },
         { kind = "spacer", h = 16 },
       } },
     },

@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "version": "2.0",
+  "version": "2.1",
   "message": "云脚本 v2.0：所有功能/界面/规则/文案合并为单一 main.lua（分为 rules/models/strings/ui/functions 段），云端仅一个文件",
   "files": {
-    "main.lua": "7bf8626011ef60c5e056fc51aba4387ccf53ab9f4e3763c92f9114c049be0976"
+    "main.lua": "e23716ed6bb17e15d2bee4bfa502959b75b6f09eaa1144208f87ecf500441ea0"
   }
 }
