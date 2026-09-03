@@ -72,21 +72,57 @@ return {
       { key = "home",    icon = "home",    title = "主页" },
       { key = "modify",  icon = "build",   title = "修改" },
       { key = "history", icon = "history", title = "记录" },
+      { key = "apps",    icon = "widgets", title = "云端" },
     },
-    order = { "home", "modify", "history", "settings" },
+    order = { "home", "modify", "history", "apps", "settings" },
   },
 
   -- ==========================================================================
   -- 每屏结构（脚本驱动屏幕宿主）
-  -- items 里可用：screenHeader / section / card / slot / spacer。
+  -- items 里可用：screenHeader / quickGrid / section / card / slot / button /
+  --             textRow / spacer。
   -- slot 嵌入原生重交互组件（登录门禁、修改编辑面、历史列表、设置）。
-  -- 修改这里的结构 / 顺序 / 标题即可云更新整套界面外壳。
+  -- 云端可在此【新增任意页面 key】，并挂在 nav.tabs 上，即得到全新页面——
+  -- 修改这里的结构 / 顺序 / 标题即可云更新整套界面外壳，无需重装 APK。
   -- ==========================================================================
   screens = {
     home     = { items = { { kind = "slot", slot = "home" } } },
     modify   = { items = { { kind = "slot", slot = "modify" } } },
     history  = { items = { { kind = "slot", slot = "history" } } },
     settings = { items = { { kind = "slot", slot = "settings" } } },
+
+    -- 纯脚本构造的全新页面：不依赖任何原生 slot，云端增删节点即整体改 UI/功能
+    apps = { items = {
+      { kind = "screenHeader", title = "App 中心", subtitle = "CLOUD DRIVEN" },
+      { kind = "quickGrid" },
+      { kind = "section", title = "功能专区" },
+      { kind = "card", items = {
+          { kind = "button", text = "一键导入表盘", action = "import" },
+          { kind = "button", text = "检查 App 更新", action = "checkUpdate" },
+          { kind = "button", text = "同步云脚本",   action = "checkScripts" },
+          { kind = "button", text = "Shizuku 授权", action = "permission" },
+          { kind = "button", text = "浏览仓库",     action = "openGithub" },
+          { kind = "button", text = "提取日志 Key", action = "extract" },
+      } },
+      { kind = "textRow", text = "☁ 界面与功能完全由云端脚本驱动，推送云端即热更", color = "8A93A8", align = "center", size = 12 },
+      { kind = "spacer", h = 16 },
+    } },
+  },
+
+  -- ==========================================================================
+  -- 主页悬浮快捷功能（功能入口脚本化）
+  -- 每个 { text, action }：text 为按钮文案；action 由原生动作桥 ScriptActions
+  -- 触发真实功能（import / permission / checkUpdate / checkScripts / openGithub ...）。
+  -- 增删 / 换绑 / 换文案，改这里即可云端热更功能入口。
+  -- ==========================================================================
+  quickActions = {
+    items = {
+      { text = "一键导入", action = "import" },
+      { text = "检查更新", action = "checkUpdate" },
+      { text = "云脚本",   action = "checkScripts" },
+      { text = "权限授权", action = "permission" },
+      { text = "浏览仓库", action = "openGithub" },
+    },
   },
 
 }
