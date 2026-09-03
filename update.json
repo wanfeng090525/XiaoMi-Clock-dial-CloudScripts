@@ -1,10 +1,11 @@
 {
   "schemaVersion": 1,
-  "version": "1.0",
-  "message": "云脚本基础版本：机型映射 + 表盘解析规则 + 云端文案",
+  "version": "1.1",
+  "message": "云脚本 v1.1：新增 ui.lua（设置页界面树脚本驱动）",
   "files": {
     "rules.lua": "c47a53f2ab30a0baa664eb494a61e0e147cdd611eb40df023cb40a24748c2acb",
     "models.lua": "108afe3fd178accf6b772d1f550930b47536a758f347b425f4bca8d57a6e7f89",
-    "strings.lua": "29c6d51542a499f7de00b79e8dab5792066eb26856a5b947b34dac9e98a1f9d3"
+    "strings.lua": "29c6d51542a499f7de00b79e8dab5792066eb26856a5b947b34dac9e98a1f9d3",
+    "ui.lua": "6b7a2cebd233396ede457e518ccbaa8ec31bd2029ee197abd3514a17794db001"
   }
 }
